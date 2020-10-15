@@ -39,7 +39,7 @@ function findById(id, animalsArray) {
     return result;
   }
 
-//these are routes
+//these are routes, their order matters
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
@@ -56,8 +56,9 @@ app.get('/api/animals/:id', (req, res) => {
     } else {
         res.send(404);
     }
-  });
+});
 
+//this can go anywhere after the globals, but is best practice here
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });
