@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const { animals } = require('./data/animals');
 
+//filters thru each animal ny either diet, species, or name
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
     let filteredResults = animalsArray;
@@ -32,6 +33,13 @@ function filterByQuery(query, animalsArray) {
     return filteredResults;
 }
 
+//fitlers thru the animals by what number they are in the array
+function findById(id, animalsArray) {
+    const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result;
+  }
+
+//these are routes
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
@@ -39,6 +47,16 @@ app.get('/api/animals', (req, res) => {
     }
     res.json(results);
 });
+
+//para route must come after the above type of route
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+    if (result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
+  });
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
