@@ -135,6 +135,15 @@
         "zany"
       ],
       "id": "13"
+    },
+    {
+      "name": "Jack",
+      "species": "Pupper",
+      "diet": "folivore",
+      "personalityTraits": [
+        "zany"
+      ],
+      "id": "14"
     }
   ]
 }
