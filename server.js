@@ -5,10 +5,14 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const { animals } = require('./data/animals');
 
+//app.use is middleware
+
 //parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));//this tells it to parse the data as deeply as it can
 //parse incoming json data
 app.use(express.json());
+//allow front end files to be readily available
+app.use(express.static('public'));
 
 //filters thru each animal ny either diet, species, or name
 function filterByQuery(query, animalsArray) {
@@ -93,9 +97,23 @@ app.get('/api/animals/:id', (req, res) => {
     }
 });
 
+//Transfers the file at the given path. Sets the Content-Type response HTTP header field based on the filename’s extension.
+//route to the index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+//route to the animals.html
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+//route to the zoop keepers
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
 //this 'post' the incoming data
 app.post('/api/animals', (req, res) => {
-    //sets id based on the next index of the animal array
+    //sets id based on the next index of the animal+ array
     req.body.id = animals.length.toString();
 
     //validate or send a 400 error back

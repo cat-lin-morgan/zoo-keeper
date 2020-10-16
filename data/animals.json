@@ -126,6 +126,15 @@
         "goofy"
       ],
       "id": "12"
+    },
+    {
+      "name": "Josh",
+      "species": "Pupper",
+      "diet": "folivore",
+      "personalityTraits": [
+        "zany"
+      ],
+      "id": "13"
     }
   ]
 }
