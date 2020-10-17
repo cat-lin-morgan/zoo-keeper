@@ -144,6 +144,17 @@
         "zany"
       ],
       "id": "14"
+    },
+    {
+      "name": "Goat",
+      "species": "Jaguar",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "anxious",
+        "loving",
+        "goofy"
+      ],
+      "id": "15"
     }
   ]
 }

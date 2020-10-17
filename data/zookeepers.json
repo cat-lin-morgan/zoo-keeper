@@ -59,6 +59,24 @@
       "age": 64,
       "favoriteAnimal": "Rabbit",
       "id": "9"
+    },
+    {
+      "name": "Cat",
+      "age": 26,
+      "favoriteAnimal": "Birb",
+      "id": "10"
+    },
+    {
+      "name": "Alexander",
+      "age": 32,
+      "favoriteAnimal": "Turtles",
+      "id": "11"
+    },
+    {
+      "name": "birb",
+      "age": 2,
+      "favoriteAnimal": "hooman",
+      "id": "12"
     }
   ]
 }
